@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div>
+  <table class="table table-striped-columns">
+
+    <tbody>
+    <tr >
+      <td>Department Code</td>
+      <td th:text="${department.Dept_code}"></td>
+      </tr>
+    <tr>
+      <td>Department NAME</td>
+      <td th:text="${department.Dept_name}"></td></tr>
+    <tr>
+      <td>Department HEADED BY</td>
+      <td th:text="${department.HOD}"></td>
+      </tr>
+
+
+
+
+    </tbody>
+  </table>
+
+  <a th:href="@{/}" class="btn btn-primary">Back To Home Page</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

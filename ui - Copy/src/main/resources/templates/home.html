@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div>
+    <h1 align="center">STUDENT DETAILS</h1>
+    <a th:href="@{/adddetails}" class="btn btn-primary">ADD</a>
+    <table class="table table-striped-columns">
+        <thead>
+        <tr>
+            <th scope="col">ROLL NO</th>
+            <th scope="col">NAME</th>
+            <th scope="col">AGE</th>
+            <th scope="col">GENDER</th>
+            <th scope="col">DEPT_CODE</th>
+            <th scope="col">ACTION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student:${StudentList}">
+            <td th:text="${student.id}"></td>
+            <td th:text="${student.Name}"></td>
+            <td th:text="${student.age}"></td>
+            <td th:text="${student.gender}"></td>
+             <td ><a th:text="${student.department.Dept_code}" th:href="@{/getdeptdetail/{department}(department=${student.department.Dept_code})}" ></a></td>
+
+      <td>  <a th:href="@{/updateform/{id}(id=${student.id})}" type="submit" class="btn btn-primary">UPDATE</a>
+          <a th:href="@{/deleteData/{id}(id=${student.id})}" type="submit" class="btn btn-danger">DELETE</a></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
